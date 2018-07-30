@@ -5,3 +5,10 @@ C:\Users\artamd\source\repos\TicTacToe\TicTacToe\obj\Debug\TicTacToe.csprojResol
 C:\Users\artamd\source\repos\TicTacToe\TicTacToe\obj\Debug\TicTacToe.csproj.CoreCompileInputs.cache
 C:\Users\artamd\source\repos\TicTacToe\TicTacToe\obj\Debug\TicTacToe.exe
 C:\Users\artamd\source\repos\TicTacToe\TicTacToe\obj\Debug\TicTacToe.pdb
+C:\Users\nadia1\Documents\tictactoe\TicTacToe\bin\Debug\TicTacToe.exe.config
+C:\Users\nadia1\Documents\tictactoe\TicTacToe\bin\Debug\TicTacToe.exe
+C:\Users\nadia1\Documents\tictactoe\TicTacToe\bin\Debug\TicTacToe.pdb
+C:\Users\nadia1\Documents\tictactoe\TicTacToe\obj\Debug\TicTacToe.csprojResolveAssemblyReference.cache
+C:\Users\nadia1\Documents\tictactoe\TicTacToe\obj\Debug\TicTacToe.csproj.CoreCompileInputs.cache
+C:\Users\nadia1\Documents\tictactoe\TicTacToe\obj\Debug\TicTacToe.exe
+C:\Users\nadia1\Documents\tictactoe\TicTacToe\obj\Debug\TicTacToe.pdb

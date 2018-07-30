@@ -55,21 +55,35 @@ namespace TicTacToe
             int x;
             int y;
 
-            while(true)
+            int check = 0;
+
+            while (true)
             {
                 draw(ttt);
                 do
                 {
                     Console.WriteLine("Enter your X position: ");
                     x = Convert.ToInt32(Console.ReadLine());
-                } while (!TTTLogic.IsValidCol(x));
+
+                    check = TTTLogic.Checkfull();
+                } while (!TTTLogic.IsValidCol(x) && check != 1 && check != -1);
 
                 do
                 {
                     Console.WriteLine("Enter your Y position: ");
                     y = Convert.ToInt32(Console.ReadLine());
-                } while (!TTTLogic.IsValidRow(y));
 
+                    check = TTTLogic.Checkfull();
+                } while (!TTTLogic.IsValidRow(y) && check != 1 && check != -1);
+
+                if (check == 1)
+                {
+                    Console.WriteLine("squares not full");
+                }
+                else
+                {
+                    Console.WriteLine("squares full!!");
+                }
                 // it is guaranteed that x and y are valid rows/columns, or else the loops wouldn't have exited
 
                 ttt.placingpiece(x, y);
