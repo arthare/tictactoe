@@ -55,7 +55,7 @@ namespace TicTacToe
             int x;
             int y;
 
-            int check = 0;
+            TTTLogic.boardfull check = TTTLogic.boardfull.boardisnotfull;
 
             while (true)
             {
@@ -65,28 +65,27 @@ namespace TicTacToe
                     Console.WriteLine("Enter your X position: ");
                     x = Convert.ToInt32(Console.ReadLine());
 
-                    check = TTTLogic.Checkfull();
-                } while (!TTTLogic.IsValidCol(x) && check != 1 && check != -1);
+                    check = ttt.Checkfull();
+                } while (!TTTLogic.IsValidCol(x));
 
                 do
                 {
                     Console.WriteLine("Enter your Y position: ");
                     y = Convert.ToInt32(Console.ReadLine());
 
-                    check = TTTLogic.Checkfull();
-                } while (!TTTLogic.IsValidRow(y) && check != 1 && check != -1);
-
-                if (check == 1)
-                {
-                    Console.WriteLine("squares not full");
-                }
-                else
-                {
-                    Console.WriteLine("squares full!!");
-                }
+                } while (!TTTLogic.IsValidRow(y));
+                
                 // it is guaranteed that x and y are valid rows/columns, or else the loops wouldn't have exited
 
                 ttt.placingpiece(x, y);
+
+                check = ttt.Checkfull();
+                if(check == TTTLogic.boardfull.boardisfull)
+                {
+                    // we're full!
+                    Console.WriteLine("squares full!!");
+                    break;
+                }
             }
             
 
