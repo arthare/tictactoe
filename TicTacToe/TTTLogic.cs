@@ -89,5 +89,23 @@ namespace TicTacToe
         {
             return board[positionX, positionY];
         }
+
+        // detect when all the squares are full
+
+        public static int Checkfull()
+        {
+            if (XO[0, 0] != empty && XO[0, 1] != empty && XO[0, 2] != empty && XO[0, 3] != empty
+                 && XO[1, 0] != empty && XO[1, 1] != empty && XO[1, 2] != empty && XO[1, 3] != empty
+                && XO[2, 0] != empty && XO[2, 1] != empty && XO[2, 2] != empty && XO[2, 3] != empty
+                && XO[3, 0] != empty && XO[3, 1] != empty && XO[3, 2] != empty && XO[3, 3] != empty)
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+        
     }
 }
