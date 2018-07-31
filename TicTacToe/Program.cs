@@ -21,7 +21,7 @@ namespace TicTacToe
             {
                 Console.WriteLine("x is turn:");
             }
-
+            Console.WriteLine("0 1 2");
             for (int row=0; row<3; row++)
             {
                 for(int col=0; col<3; col++)
@@ -29,19 +29,19 @@ namespace TicTacToe
                    TTTLogic.XO xo =logic.Getpiece(col, row);
                     if(xo == TTTLogic.XO.Empty)
                     {
-                        Console.Write(" ");
+                        Console.Write("  ");
                     }
                     if(xo == TTTLogic.XO.O)
                     {
-                        Console.Write("o");
+                        Console.Write("o ");
                     }
                     if(xo == TTTLogic.XO.X)
                     {
-                        Console.Write("x");
+                        Console.Write("x ");
                     }
                     
                 }
-                Console.WriteLine("|");
+                Console.WriteLine("|" + row);
             }
         }
         static void OnError()
@@ -79,6 +79,13 @@ namespace TicTacToe
 
                 ttt.placingpiece(x, y);
 
+
+                if(ttt.state() != TTTLogic.WhoWon.StillPlaying)
+                {
+                    Console.WriteLine("The result of the game was: " + ttt.state().ToString());
+                    break;
+                }
+
                 check = ttt.Checkfull();
                 if(check == TTTLogic.boardfull.boardisfull)
                 {
@@ -90,6 +97,11 @@ namespace TicTacToe
             
 
                 
+        }
+        
+        public void button1_1_onpress()
+        {
+            ttt.placingPiece(1, 1);
         }
     }
 }

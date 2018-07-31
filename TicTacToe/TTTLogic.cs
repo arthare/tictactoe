@@ -16,6 +16,11 @@ namespace TicTacToe
         }
         XO NextMove = XO.X;
 
+        public enum boardfull
+        {
+            boardisfull,
+            boardisnotfull,
+        }
         public XO turn()
         {
             return NextMove;
@@ -92,19 +97,70 @@ namespace TicTacToe
 
         // detect when all the squares are full
 
-        public int Checkfull()
+        public boardfull Checkfull()
         {
-            if (board[0, 0] != XO.Empty && board[0, 1] != XO.Empty && board[0, 2] != XO.Empty
-                 && board[1, 0] != XO.Empty && board[1, 1] != XO.Empty && board[1, 2] != XO.Empty
-                && board[2, 0] != XO.Empty && board[2, 1] != XO.Empty && board[2, 2] != XO.Empty)
+           for(int i=0; i<board.GetLength(0); i++)
             {
-                return -1;
+                for(int j=0; j<board.GetLength(1); j++)
+                {
+                    if(board[i, j]==XO.Empty)
+                    {
+                        return boardfull.boardisnotfull;
+                    }
+                }
             }
-            else
-            {
-                return 1;
-            }
+
+            return boardfull.boardisfull;
+        }
+
+        public enum WhoWon
+        {
+            XWins,
+            OWins,
+            StillPlaying,
         }
         
+        public WhoWon state()
+        {
+            for(int i=0; i<board.GetLength(0); i++)
+            {
+                bool rowEqual = true;
+                XO firstInRow = board[i, 0];
+                bool colEqual = true;
+                XO firstINCol = board[0, i];
+                for (int j=0; j<board.GetLength(1); j++)
+                {
+                    rowEqual = rowEqual && board[i, j] == firstInRow;
+                    colEqual = colEqual && board[j, i] == firstINCol;
+                }
+
+                if(rowEqual == true)
+                {
+                    if(firstInRow == XO.X)
+                    {
+                        return WhoWon.XWins;
+                    }
+                    if (firstInRow == XO.O)
+                    {
+                        return WhoWon.OWins;
+                    }
+                }
+                if(colEqual == true)
+                {
+                    if (firstINCol == XO.X)
+                    {
+                        return WhoWon.XWins;
+                    }
+                    if (firstINCol == XO.O)
+                    {
+                        return WhoWon.OWins;
+                    }
+                }
+
+
+            }
+
+            return WhoWon.StillPlaying;
+        }
     }
 }
